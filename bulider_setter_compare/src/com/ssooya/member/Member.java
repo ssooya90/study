@@ -1,4 +1,4 @@
-package com.ssooya.Member;
+package com.ssooya.member;
 
 
 public class Member {
@@ -8,11 +8,16 @@ public class Member {
     private String age;
     private String weight;
     private String height;
-    private final String id;
+    private final String id; // 필수인자
+
+    // 추가 파라미터
+    private String hp;
 
 
-    public Member(String name, String id){
-        this.name = name;
+
+
+
+    public Member(String id){
         this.id = id;
     }
 
@@ -76,6 +81,8 @@ public class Member {
     }
 
 
+
+    /// 빌더패턴
     Member(Builder builder){
        this.name = builder.name;
        this.addr = builder.addr;
@@ -102,12 +109,6 @@ public class Member {
             this.name = name;
             this.id = id;
         }
-
-        public Builder(Member member){
-            this.name = member.getName();
-            this.id = member.getId();
-        }
-
 
         public Builder addr(String addr) {
             this.addr = addr;
